@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.jasper.tagplugins.jstl.core.Out;
-
 import com.test.bean.Question;
 import com.test.bean.Result;
 import com.test.bean.Student;
@@ -22,8 +20,6 @@ import com.test.bl.ResultLogic;
 import com.test.bl.StudentLogic;
 import com.test.bl.SubjectLogic;
 import com.test.bl.TestLogic;
-
-import javafx.scene.control.Alert;
 
 public class StudentHelper extends HttpServlet {
 	private static final long serialVersionUID = 1L;

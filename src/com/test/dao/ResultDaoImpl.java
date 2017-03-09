@@ -9,7 +9,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.type.IntegerType;
 
 import com.test.bean.Result;
 
@@ -26,9 +25,6 @@ public class ResultDaoImpl implements ResultDao {
 
 	}
 
-	// private static final String Set_Result="INSERT INTO
-	// RESULT(USERNAME,SUBJECT_ID,RESULT,TIME_)
-	// VALUES(?,?,?,to_date(sysdate,'dd/mm/yy'))";
 	public List<Result> show(String username) throws ClassNotFoundException, SQLException, IOException {
 		session = factory.openSession();
 		Transaction tx = null;

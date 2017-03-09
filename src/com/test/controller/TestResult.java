@@ -1,14 +1,12 @@
 package com.test.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.sql.Date;
 import java.util.Enumeration;
 import java.util.List;
 
-import javax.rmi.CORBA.UtilDelegate;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,8 +15,6 @@ import javax.servlet.http.HttpSession;
 
 import com.test.bean.Question;
 import com.test.bean.Result;
-import com.test.bean.Student;
-import com.sun.corba.se.impl.javax.rmi.CORBA.Util;
 import com.test.bean.PrintResult;
 import com.test.bl.QuestionLogic;
 import com.test.bl.ResultLogic;

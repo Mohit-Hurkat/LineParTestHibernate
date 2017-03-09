@@ -1,26 +1,19 @@
 package com.test.dao;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.Projections;
 import org.hibernate.type.IntegerType;
 
 import com.test.bean.Question;
-
-import com.test.helper.JDBCConnection;
 
 public class QuestionDaoImpl implements QuestionDao {
 	private Configuration cfg;
@@ -42,9 +35,10 @@ public class QuestionDaoImpl implements QuestionDao {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			Query query = session.createSQLQuery("SELECT MAX(QUESTION_ID) as value FROM QUESTIONS").addScalar("value", new IntegerType());
+			Query query = session.createSQLQuery("SELECT MAX(QUESTION_ID) as value FROM QUESTIONS").addScalar("value",
+					new IntegerType());
 			int quesId = (int) query.uniqueResult();
-			question.setQuestion_Id(quesId+1);
+			question.setQuestion_Id(quesId + 1);
 			session.save(question);
 			tx.commit();
 			return true;
@@ -141,13 +135,13 @@ public class QuestionDaoImpl implements QuestionDao {
 	}
 
 	public String answer(int questionId) throws IOException, ClassNotFoundException, SQLException {
-		
+
 		session = factory.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
 			ques = (Question) session.get(Question.class, questionId);
-			String ans=ques.getAns();
+			String ans = ques.getAns();
 			tx.commit();
 			return ans;
 
